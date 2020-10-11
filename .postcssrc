@@ -1,0 +1,14 @@
+{
+    "plugins": {
+        "tailwind": true,
+        "postcss-nesting": true,
+        "purgecss": true,
+        "postcss-preset-env": {
+            "features": {
+                "nesting-rules": true
+            }
+        },
+        "autoprefixer": true,
+        "postcss-clean": true
+    }
+}

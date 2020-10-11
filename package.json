@@ -15,6 +15,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "autoprefixer": "^9.8.6",
     "eslint": "^6.8.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.22.1",
@@ -23,7 +24,13 @@
     "eslint-plugin-standard": "^4.0.1",
     "gh-pages": "^3.1.0",
     "parcel": "^1.12.4",
+    "postcss-clean": "^1.1.0",
+    "postcss-cli": "^7.1.2",
+    "postcss-nesting": "^7.0.1",
+    "postcss-preset-env": "^6.7.0",
+    "purgecss": "^3.0.0",
     "stylelint": "^13.7.2",
-    "stylelint-config-standard": "^20.0.0"
+    "stylelint-config-standard": "^20.0.0",
+    "tailwindcss": "^1.8.13"
   }
 }
