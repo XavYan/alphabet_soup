@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "parcel --port 3000 src/index.html",
+    "linters": "stylelint src/css/* && eslint src/js/*",
     "build": "parcel build src/index.html --public-url /alphabet_soup -d build",
     "deploy": "gh-pages -d build",
     "clean": "rm -rf package-lock.json dist .cache build",
