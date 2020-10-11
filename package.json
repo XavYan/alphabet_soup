@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "parcel --port 1234 src/index.html",
+    "start": "parcel --port 3000 src/index.html",
     "build": "parcel build src/index.html --public-url /alphabet_soup -d build",
     "deploy": "gh-pages -d build",
     "clean": "rm -rf package-lock.json dist .cache build",
