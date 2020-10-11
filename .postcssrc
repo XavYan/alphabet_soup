@@ -1,8 +1,7 @@
 {
     "plugins": {
-        "tailwind": true,
         "postcss-nesting": true,
-        "purgecss": true,
+        "postcss-purgecss": true,
         "postcss-preset-env": {
             "features": {
                 "nesting-rules": true
