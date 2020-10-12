@@ -8,12 +8,40 @@ body {
 }
 
 .container {
+    margin: auto;
     width: 100vw;
     height: 100vh;
     background-color: grey;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+
+    & > div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    & button {
+        margin-top: 20px;
+        padding: 12px 40px;
+        font-weight: 600;
+        background-color: #3bbeff;
+        border: 0;
+        border-radius: 5px;
+        transition: all 0.3s;
+        box-shadow: 1px 1px 3px black;
+
+        &:hover {
+            background-color: #3b93ff;
+            color: white;
+            cursor: pointer;
+            box-shadow: 3px 3px 8px black;
+            transform: translateX(-1px) translateY(-1px);
+        }
+    }
 }
 
 .soup_table {

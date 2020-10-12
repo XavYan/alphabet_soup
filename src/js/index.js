@@ -129,10 +129,15 @@ const loadWordList = () => {
     }
 }
 
+const loadTable = () => {
+    generateEmptyTable();
+    setWordsIntoTable();
+    setRandomOnLeftCells();
+    removeMarkedClass();
+}
 
-generateEmptyTable();
-setWordsIntoTable();
-setRandomOnLeftCells();
-removeMarkedClass();
+document.querySelector('#generate_button').addEventListener('click', loadTable);
+
+loadTable();
 
 loadWordList();
