@@ -171,7 +171,6 @@ const checkWord = e => {
         e.target.classList.add('checked');
     } else if (checked.length === 1) {
         const wordJSON = getFormedWord(checked[0], e.target);
-        console.log(wordJSON.word);
         const formatedWords = WORDS.map(e => {
             return e.replace(/\s/g, '').toUpperCase();
         });
@@ -189,6 +188,10 @@ const checkWord = e => {
             checked.forEach(e => {
                 e.classList.remove('checked');
             });
+        }
+        const foundedWords = document.querySelectorAll('word_found');
+        if (foundedWords.length === WORDS.length) {
+            alert('Has ganado!');
         }
     }
 };
