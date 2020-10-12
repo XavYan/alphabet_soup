@@ -46,14 +46,29 @@ body {
 
 .soup_table {
     display: grid;
+    background-color: white;
     grid-template-rows: repeat(var(--row-size), 1fr);
     grid-template-columns: repeat(var(--column-size), 1fr);
     border: 1px solid black;
+    box-shadow: 3px 3px 30px black;
     & div {
         border: 1px solid black;
         padding: 5px;
         text-align: center;
+
+        &:hover {
+            cursor: pointer;
+            background-color: red;
+        }
+
+        &.checked, &.found {
+            background-color: red;
+        }
     }
+}
+
+.word_found {
+    text-decoration: line-through;
 }
 
 .aside {

@@ -33,7 +33,7 @@ const generateEmptyTable = () => {
     TABLE.innerHTML = '';
     for (let i of _.range(1, MAX_ROW_SIZE+1)) {
         for (let j of _.range(1, MAX_COLUMN_SIZE + 1)) {
-            TABLE.innerHTML += `<div class="row${i} col${j}">${i};${j}</div>`
+            TABLE.innerHTML += `<div data-row="${i}" data-col="${j}" class="row${i} col${j}">${i};${j}</div>`
         }
     }
 };
@@ -129,15 +129,79 @@ const loadWordList = () => {
     }
 }
 
+const loadTableEvents = () => {
+    document.querySelectorAll('.soup_table div').forEach (e => {
+        e.addEventListener('click', checkWord);
+    });
+};
+
+const getFormedWord = (from, to) => {
+    if (from.dataset.row != to.dataset.row && from.dataset.col != to.dataset.col) {
+        alert('La eleccion no es valida');
+    }
+
+    let word = '';
+    let wordCells = [];
+
+    if (from.dataset.row == to.dataset.row && parseInt(from.dataset.col) < parseInt(to.dataset.col)) {
+        for (let i = parseInt(from.dataset.col); i <= parseInt(to.dataset.col); i++) {
+            const cell = document.querySelector('.row' + parseInt(from.dataset.row) + '.col' + i);
+            word += cell.textContent;
+            wordCells.push(cell);
+        }
+    }
+
+    if (from.dataset.col == to.dataset.col && parseInt(from.dataset.row) < parseInt(to.dataset.row)) {
+        for (let i = parseInt(from.dataset.row); i <= parseInt(to.dataset.row); i++) {
+            const cell = document.querySelector('.row' + i + '.col' + parseInt(from.dataset.col));
+            word += cell.textContent;
+            wordCells.push(cell);
+        }
+    }
+
+    return {
+        "word": word,
+        "wordCells": wordCells
+    };
+};
+
+const checkWord = e => {
+    let checked = document.querySelectorAll('.soup_table div.checked');
+    if (checked.length === 0) {
+        e.target.classList.add('checked');
+    } else if (checked.length === 1) {
+        const wordJSON = getFormedWord(checked[0], e.target);
+        console.log(wordJSON.word);
+        const formatedWords = WORDS.map(e => {
+            return e.replace(/\s/g, '').toUpperCase();
+        });
+        if (formatedWords.includes(wordJSON.word)) {
+            wordJSON.wordCells.forEach (e => {
+                e.classList.add('found');
+                e.classList.remove('checked');
+            });
+            document.querySelectorAll('.word_list li').forEach (element => {
+                if (element.textContent.replace(/\s/g, '').toUpperCase() === wordJSON.word) {
+                    element.classList.add('word_found');
+                }
+            });
+        } else {
+            checked.forEach(e => {
+                e.classList.remove('checked');
+            });
+        }
+    }
+};
+
 const loadTable = () => {
     generateEmptyTable();
     setWordsIntoTable();
     setRandomOnLeftCells();
     removeMarkedClass();
-}
-
-document.querySelector('#generate_button').addEventListener('click', loadTable);
+    loadTableEvents();
+    loadWordList();
+};
 
 loadTable();
 
-loadWordList();
+document.querySelector('#generate_button').addEventListener('click', loadTable);
