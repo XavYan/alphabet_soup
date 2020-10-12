@@ -1,6 +1,10 @@
 {
 	"extends": "stylelint-config-standard",
+	"plugins": [
+		"stylelint-use-nesting"
+	],
 	"rules": {
-		"indentation": 4
+		"indentation": 4,
+		"csstools/use-nesting": "always"
 	}
 }

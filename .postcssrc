@@ -1,7 +1,6 @@
 {
     "plugins": {
         "postcss-nesting": true,
-        "postcss-purgecss": true,
         "postcss-preset-env": {
             "features": {
                 "nesting-rules": true

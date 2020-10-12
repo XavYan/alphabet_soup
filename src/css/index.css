@@ -1,3 +1,44 @@
+:root {
+    --column-size: 25;
+    --row-size: 20;
+}
+
 body {
     margin: 0;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    background-color: grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.soup_table {
+    display: grid;
+    grid-template-rows: repeat(var(--row-size), 1fr);
+    grid-template-columns: repeat(var(--column-size), 1fr);
+    border: 1px solid black;
+    & div {
+        border: 1px solid black;
+        padding: 5px;
+        text-align: center;
+    }
+}
+
+.aside {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & h2 {
+        margin-bottom: 0;
+    }
+
+    & .word_list li {
+        list-style: none;
+        padding: 3px 0;
+    }
 }
