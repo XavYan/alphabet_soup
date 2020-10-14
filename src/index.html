@@ -11,10 +11,19 @@
     <div class="container">
         <div class="">
             <div class="soup_table"></div>
-            <button id="generate_button">GENERATE NEW</button>
+            <div class="footer">
+                <select name="" id="word_list_selector">
+                    <option value="medioAmbiente">Medio Ambiente</option>
+                    <option value="computacion">Computación</option>
+                    <option value="hogwarts">Hogwarts</option>
+                    <option value="educacion">Educación, Enseñanza</option>
+                </select>
+                <button id="generate_button">GENERATE NEW</button>
+            </div>
         </div>
         <div class="aside">
             <h2>Word list</h2>
+            <p id="category_info"></p>
             <ul class="word_list"></ul>
         </div>
     </div>

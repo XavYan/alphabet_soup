@@ -1,30 +1,13 @@
 import _ from 'lodash';
-
-const WORDS = [
-    'Aire',
-    'Atmosfera',
-    'Biodiversidad',
-    'Biosfera',
-    'Clima',
-    'Dioxido de carbono',
-    'Ecosistemas',
-    'Estratosfera',
-    'Exosfera',
-    'Hidrosfera',
-    'Lagos',
-    'Litosfera',
-    'Mesosfera',
-    'Oceanos',
-    'Oxigeno',
-    'Ozono',
-    'Rios',
-    'Termosfera',
-    'Troposfera',
-    'Vida'
-];
+import wordList from './words';
 
 const MAX_COLUMN_SIZE = 25;
 const MAX_ROW_SIZE = 20;
+
+let WORDS = wordList.medioAmbiente.words;
+const WORD_LIST_INFO = document.querySelector('#category_info');
+
+WORD_LIST_INFO.textContent = wordList.medioAmbiente.name;
 
 const TABLE = document.querySelector('.soup_table');
 const WORD_LIST = document.querySelector('.word_list');
@@ -208,3 +191,9 @@ const loadTable = () => {
 loadTable();
 
 document.querySelector('#generate_button').addEventListener('click', loadTable);
+
+document.querySelector('#word_list_selector').addEventListener('change', e => {
+    WORDS = wordList[e.target.value].words;
+    WORD_LIST_INFO.textContent = wordList[e.target.value].name;
+    loadTable();
+});
