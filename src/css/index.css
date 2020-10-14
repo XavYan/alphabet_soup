@@ -53,6 +53,7 @@ body {
     grid-template-columns: repeat(var(--column-size), 1fr);
     border: 1px solid black;
     box-shadow: 1px 1px 5px black;
+
     & div {
         border: 1px solid black;
         padding: 7px;
@@ -63,7 +64,9 @@ body {
             cursor: pointer;
         }
 
-        &:hover, &.checked, &.found {
+        &:hover,
+        &.checked,
+        &.found {
             background-color: #4ea8de;
         }
     }
@@ -80,13 +83,13 @@ body {
 
     & .word_list {
         margin-top: 0;
-    }
 
-    & .word_list li {
-        list-style: none;
-        padding: 3px 0;
-        font-family: 'Raleway', sans-serif;
-        font-weight: 400;
+        & li {
+            list-style: none;
+            padding: 3px 0;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 400;
+        }
     }
 
     & h2 {
